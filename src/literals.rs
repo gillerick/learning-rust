@@ -1,13 +1,10 @@
-mod primitives;
-mod literals;
-
 fn main() {
     // Integer addition
     println!("1 + 2 = {}", 1u32 + 2);
 
     // Integer subtraction
     println!("1 - 2 = {}", 1i32 - 2);
-    // println!("1 - 2 = {}", 1u32 - 2); //attempt to compute `1_u32 - 2_u32`, which would overflow
+    // TODO ^ Try changing `1i32` to `1u32` to see why the type is important
 
     // Short-circuiting boolean logic
     println!("true AND false is {}", true && false);
