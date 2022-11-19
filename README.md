@@ -3,13 +3,14 @@
 This project is for learning fundamentals of Rust programming language
 
 ### 1. Primitives
+
 #### Scalar Types
 
 - These include:
-    - _signed integers_
-    - _unsigned integers_
-    - _floating point_
-    - _bool_
+    - signed integers like `-2i32`
+    - unsigned integers like `1u32`
+    - floating point like `1.0`
+    - bool like `true`
     - the unit type (), whose only possible value is an empty tuple: ()
 
 #### Compound Types
@@ -40,3 +41,14 @@ This project is for learning fundamentals of Rust programming language
 - Tuples are constructed using parentheses (), and each tuple itself is a value with type signature (T1, T2, ...), where
   T1, T2 are the types of its members.
 - Functions can use tuples to return multiple values, as tuples can hold any number of values.
+
+#### 1.3. Arrays and Slices
+
+- An array is a collection of objects of the same type T, stored in contiguous memory.
+- Arrays are created using brackets `[]`, and their length, which is known at compile time, is part of their type
+  signature [T; length].
+- Slices are similar to arrays, but their length is not known at compile time.
+- Instead, a slice is a two-word object, the first word is a pointer to the data, and the second word is the length of
+  the slice. The word size is the same as usize,
+  determined by the processor architecture e.g. 64 bits on an x86-64. Slices can be used to borrow a section of an
+  array, and have the type signature `&[T]`.
