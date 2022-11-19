@@ -1,5 +1,6 @@
 mod primitives;
 mod literals;
+mod tuples;
 
 fn main() {
     // Integer addition

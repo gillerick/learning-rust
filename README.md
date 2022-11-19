@@ -2,8 +2,7 @@
 
 This project is for learning fundamentals of Rust programming language
 
-### Primitives
-
+### 1. Primitives
 #### Scalar Types
 
 - These include:
@@ -23,7 +22,7 @@ This project is for learning fundamentals of Rust programming language
   default to i32 and floats to f64.
 - Rust can also infer types from context.
 
-### Literals and Operators
+#### 1.1. Literals and Operators
 
 - Integers 1, floats 1.2, characters 'a', strings "abc", booleans true and the unit type () can be expressed using
   literals.
@@ -35,7 +34,7 @@ This project is for learning fundamentals of Rust programming language
 - We need to tell the compiler the type of the literals we use. For now, we'll use the u32 suffix to indicate that the
   literal is an unsigned 32-bit integer, and the i32 suffix to indicate that it's a signed 32-bit integer.
 
-### Tuples
+#### 1.2. Tuples
 
 - A tuple is a collection of _values of different types_.
 - Tuples are constructed using parentheses (), and each tuple itself is a value with type signature (T1, T2, ...), where
