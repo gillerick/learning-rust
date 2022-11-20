@@ -3,6 +3,8 @@ mod literals;
 mod tuples;
 mod arrays;
 mod structures;
+mod linked_list;
+mod constants;
 
 fn main() {
     // Integer addition
