@@ -177,9 +177,9 @@ This project is for learning fundamentals of Rust programming language
 
 - Rust has two different types of constants which can be declared in any scope including global. Both require explicit
   type annotation:
-  - const: An unchangeable value (the common case). 
-  - static: A possibly mutable variable with 'static lifetime. The static lifetime is inferred and does not have to be
-  specified. Accessing or modifying a mutable static variable is unsafe.
+    - const: An unchangeable value (the common case).
+    - static: A possibly mutable variable with 'static lifetime. The static lifetime is inferred and does not have to be
+      specified. Accessing or modifying a mutable static variable is unsafe.
 
 ```rust
 // Globals are declared outside all other scopes.
@@ -203,6 +203,45 @@ fn main() {
     // THRESHOLD = 5;
     // FIXME ^ Comment out this line
 }
-
 ```
+
+### 3. Variable bindings
+
+- Rust provides type safety via `static typing`.
+- Variable bindings can be type annotated when declared. However, in most cases, the compiler will be able to infer the
+  type of the variable from the context, heavily reducing the annotation burden.
+- Values (like literals) can be bound to variables, using the let binding.
+
+#### 3.1. Patterns
+
+- In many languages, a variable binding would be called a variable, but Rust’s variable bindings have a few tricks up
+  their sleeves. For example the left-hand side of a let statement is a ‘pattern’, not a variable name. This means we
+  can do things like:
+
+  ```rust
+  fn main() {
+      let (x, y) = (1, 2);
+  }
+  ```
+
+- After this statement is evaluated, x will be one, and y will be two.
+
+#### 3.2. Type annotations
+
+- Rust is a statically typed language, which means that we specify our types up front, and they’re checked at compile
+  time. So why does our first example compile? Well, Rust has this thing called ‘type inference’. If it can figure out
+  what the type of something is, Rust doesn’t require you to explicitly type it out.
+- We can add the type if we want to, though. Types come after a colon (:):
+
+  ```rust
+  fn main() {
+      let x: i32 = 3;
+  }
+  ```
+
+- This can be read out loudly as “x is a binding with the type i32 and the value 3.”
+- In this case we chose to represent x as a 32-bit signed integer. Rust has many different primitive integer types. They
+  begin with i for signed integers and u for unsigned integers.
+- The possible integer sizes are 8, 16, 32, and 64 bits.
+
 
