@@ -73,3 +73,18 @@ fn main() {
 
     println!("pair contains {:?} and {:?}", integer, decimal);
 }
+
+/*Activities
+ 1. Add a function rect_area which calculates the area of a Rectangle (try using nested destructuring).
+ 2. Add a function square which takes a Point and a f32 as arguments, and returns a Rectangle with its
+ top left corner on the point, and a width and height corresponding to the f32.
+ */
+
+
+fn rect_area(rectangle: &Rectangle) -> f32 {
+    let &Rectangle {
+        top_left: Point { x: x1, y: y1 },
+        bottom_right: Point { x: x2, y: y2 }
+    } = rectangle;
+    return (x1 - x2).abs() * (y2 - y1).abs();
+}
