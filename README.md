@@ -264,5 +264,53 @@ fn main() {
   }
   ```
 
+#### 3.4. Scope and shadowing
 
+- Variable bindings have a `scope`, and are _constrained_ to live in a block. A block is a collection of statements
+  enclosed by braces {}.
+- Function definitions are also blocks!
+
+```rust
+fn main() {
+    // This binding lives in the main function
+    let long_lived_binding = 1;
+
+    // This is a block, and has a smaller scope than the main function
+    {
+        // This binding only exists in this block
+        let short_lived_binding = 2;
+
+        println!("inner short: {}", short_lived_binding); //prints out 2
+    }
+    // End of the block
+
+    // Error! `short_lived_binding` doesn't exist in this scope
+    println!("outer short: {}", short_lived_binding);
+
+    println!("outer long: {}", long_lived_binding); // prints out 1
+}
+```
+
+- Additionally, variable bindings can be `shadowed`. This means that a later variable binding with the same name as
+  another binding that is currently in scope will _override_ the previous binding. This is shown below:
+
+  ```rust
+  fn main() {
+      let shadowed_binding = 1;
+  
+      {
+          println!("before being shadowed: {}", shadowed_binding); // prints out 1
+  
+          // This binding *shadows* the outer one
+          let shadowed_binding = "abc";
+  
+          println!("shadowed in inner block: {}", shadowed_binding); // prints out 'abc'
+      }
+      println!("outside inner block: {}", shadowed_binding); // prints out 1
+  
+      // This binding *shadows* the previous binding
+      let shadowed_binding = 2;
+      println!("shadowed in outer block: {}", shadowed_binding); // prints out 2
+  }
+  ```
 
