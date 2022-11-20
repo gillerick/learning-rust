@@ -2,6 +2,8 @@ mod primitives;
 mod literals;
 mod tuples;
 mod arrays;
+mod structures;
+mod activities;
 
 fn main() {
     // Integer addition
