@@ -318,7 +318,7 @@ fn main() {
 
 - It's possible to declare variable bindings first, and initialize them later. However, this form is seldom used, as it
   may lead to the use of uninitialized variables.
-  
+
   ```rust
   fn main() {
     // Declare a variable binding
@@ -343,3 +343,30 @@ fn main() {
     println!("another binding: {}", another_binding); // prints outs 1
   }
   ```
+
+#### 3.6. Freezing
+
+- When data is bound by the same name immutably, it also freezes. Frozen data can't be modified until the immutable
+  binding goes out of scope:
+  
+  ```rust
+  fn main() {
+      let mut _mutable_integer = 7i32;
+  
+      {
+          // Shadowing by immutable `_mutable_integer`
+          let _mutable_integer = _mutable_integer;
+          println!("mutable integer within frozen scope {}", _mutable_integer); // prints out 7
+  
+          // Error! cannot assign twice to immutable variable `_mutable_integer`
+          _mutable_integer = 50;
+  
+          // `_mutable_integer` goes out of scope
+      }
+  
+      // Ok! `_mutable_integer` is not frozen in this scope
+      _mutable_integer = 3;
+      println!("mutable integer after frozen scope {}", _mutable_integer)
+  }
+  ```
+
