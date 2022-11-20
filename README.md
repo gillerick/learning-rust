@@ -107,5 +107,41 @@ This project is for learning fundamentals of Rust programming language
       }
   }
   ```
+  
+- In Rust enums, `use` declaration can be used so that manual scoping isn't needed. This is shown below:
 
-
+  ```rust
+  enum Status {
+      Valid,
+      Invalid,
+  }
+  
+  enum User {
+      Admin,
+      Member,
+  }
+  
+  fn main() {
+      // Explicitly `use` each name so they are available without manual scoping.
+      use crate::Status::{Valid, Invalid};
+      // Automatically `use` each name inside `User`.
+      use crate::User::*;
+  
+      // Equivalent to `Status::Invalid`.
+      let status = Invalid;
+      // Equivalent to `User::Admin`.
+      let user = Admin;
+  
+      match status {
+          // Note the lack of scoping because of the explicit `use` above.
+          Valid => println!("This is a valid status"),
+          Invalid => println!("This is an invalid status"),
+      }
+  
+      match user {
+          // Note again the lack of scoping.
+          Admin => println!("An admin user has unrestricted permission"),
+          Member => println!("A member user has limited permissions"),
+      }
+  }
+  ```
