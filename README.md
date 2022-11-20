@@ -240,8 +240,29 @@ fn main() {
   ```
 
 - This can be read out loudly as “x is a binding with the type i32 and the value 3.”
-- In this case we chose to represent x as a 32-bit signed integer. Rust has many different primitive integer types. They
+- In this case we chose to represent x as a 32-bit signed integer. Rust has various primitive integer types. They
   begin with i for signed integers and u for unsigned integers.
 - The possible integer sizes are 8, 16, 32, and 64 bits.
+
+#### 3.3. Mutability
+
+- Variable bindings are immutable, though this can be overridden using the `mut` modifier as shown below:
+
+  ```rust
+  fn main() {
+      let _immutable_binding = 1;
+      let mut mutable_binding = 1;
+  
+      println!("Before mutation: {}", mutable_binding); //prints out 1
+  
+      mutable_binding += 2;
+  
+      println!("After mutation: {}", mutable_binding); // prints out 3
+  
+      // Fails with error `cannot assign twice to immutable variable `_immutable_binding`
+      _immutable_binding += 1;
+  }
+  ```
+
 
 
