@@ -52,3 +52,19 @@ This project is for learning fundamentals of Rust programming language
   the slice. The word size is the same as usize,
   determined by the processor architecture e.g. 64 bits on an x86-64. Slices can be used to borrow a section of an
   array, and have the type signature `&[T]`.
+
+### 2. Custom types
+
+- Rust custom data types are formed mainly through the two keywords:
+    - `struct`: defines a structure
+    - `enum`: defines an enumeration
+- Constants can also be created via the `const` and `static` keywords.
+
+#### 2.1. Structures
+
+- There are three types of structures ("structs") that can be created using the struct keyword:
+  - Tuple structs, which are, basically, named tuples. 
+  - The classic C structs 
+  - Unit structs, which are field-less, are useful for generics.
+
+
