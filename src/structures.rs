@@ -88,3 +88,11 @@ fn rect_area(rectangle: &Rectangle) -> f32 {
     } = rectangle;
     return (x1 - x2).abs() * (y2 - y1).abs();
 }
+
+fn square(origin: Point, dimension: f32) -> Rectangle {
+    let Point {
+        x, y
+    } = origin;
+
+    Rectangle { top_left: origin, bottom_right: Point { x: x + dimension, y: y + dimension } }
+}
