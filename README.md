@@ -270,26 +270,26 @@ fn main() {
   enclosed by braces {}.
 - Function definitions are also blocks!
 
-```rust
-fn main() {
-    // This binding lives in the main function
-    let long_lived_binding = 1;
-
-    // This is a block, and has a smaller scope than the main function
-    {
-        // This binding only exists in this block
-        let short_lived_binding = 2;
-
-        println!("inner short: {}", short_lived_binding); //prints out 2
-    }
-    // End of the block
-
-    // Error! `short_lived_binding` doesn't exist in this scope
-    println!("outer short: {}", short_lived_binding);
-
-    println!("outer long: {}", long_lived_binding); // prints out 1
-}
-```
+  ```rust
+  fn main() {
+      // This binding lives in the main function
+      let long_lived_binding = 1;
+  
+      // This is a block, and has a smaller scope than the main function
+      {
+          // This binding only exists in this block
+          let short_lived_binding = 2;
+  
+          println!("inner short: {}", short_lived_binding); //prints out 2
+      }
+      // End of the block
+  
+      // Error! `short_lived_binding` doesn't exist in this scope
+      println!("outer short: {}", short_lived_binding);
+  
+      println!("outer long: {}", long_lived_binding); // prints out 1
+  }
+  ```
 
 - Additionally, variable bindings can be `shadowed`. This means that a later variable binding with the same name as
   another binding that is currently in scope will _override_ the previous binding. This is shown below:
@@ -348,7 +348,7 @@ fn main() {
 
 - When data is bound by the same name immutably, it also freezes. Frozen data can't be modified until the immutable
   binding goes out of scope:
-  
+
   ```rust
   fn main() {
       let mut _mutable_integer = 7i32;
@@ -369,4 +369,32 @@ fn main() {
       println!("mutable integer after frozen scope {}", _mutable_integer)
   }
   ```
+
+### 4. Types
+
+- Rust provides several mechanisms to change or define the type of primitive and user defined types.
+
+#### 4.1. Casting
+
+- Rust provides no implicit type conversion (coercion) between primitive types. But, explicit type conversion (casting)
+  can be performed using the `as` keyword.
+- Rules for converting between integral types follow C conventions generally, except in cases where C has undefined
+  behavior. The behavior of all casts between integral types is well-defined in Rust.
+
+  ```rust
+  fn main() {
+    let decimal = 65.4321_f32;
+  
+    // Error! No implicit conversion
+    let integer: u8 = decimal;
+  
+    // Explicit conversion
+    let integer = decimal as u8;
+    let character = integer as char;
+  
+    // Error! There are limitations in conversion rules. A float cannot be directly converted to a char.
+    let character = decimal as char;
+  }
+  ```
+
 
