@@ -76,7 +76,10 @@ fn main() {
     }
 
     let num = Number::from(-3);
+    let int = 78;
+    let int_into_num: Number = int.into();
     println!("My number is {:?}", num);
+    println!("My number is {:?}", int_into_num);
 }
 
 // Create an `enum` to classify a web event. Note how both

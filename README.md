@@ -448,9 +448,19 @@ fn main() {
   mechanism for converting between several types.
 - There are numerous implementations of this trait within the standard library for conversion of primitive and common
   types. For example, we can easily convert a str into a String.
+
   ```rust
   let my_str = "hello";
   let my_string = String::from(my_str);
+  ```
+
+- The `Into` trait is simply the reciprocal of the `From` trait.
+- That is, if you have implemented the `From` trait for your type, `Into` will call it when necessary.
+- For `Into`, a type declaration must be included. Excluding it fails with a `type annotations needed` error
+
+  ```rust
+  let int = 7;
+  let num: Number = int.into();
   ```
 
 
