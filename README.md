@@ -434,6 +434,26 @@ fn main() {
 - It is to be noted, however, that an alias is not a new type entirely. In other words, because Rust is strongly typed,
   you’d expect a comparison between two different types to fail
 
+### 5. Conversion
+
+- Primitive types can be converted to each other through `casting`.
+- Rust addresses conversion between custom types (i.e., `struct` and `enum`) by the use of `traits`.
+- The generic conversions will use the `From` and `Into` traits.
+
+### 5.1. From and Into
+
+- The `From` and `Into` traits are inherently linked. If you are able to convert from type A to type B then you should
+  be able to convert from type B to type A.
+- The `From` trait allows for a type to define how to create itself from another type, hence providing a very simple
+  mechanism for converting between several types.
+- There are numerous implementations of this trait within the standard library for conversion of primitive and common
+  types. For example, we can easily convert a str into a String.
+  ```rust
+  let my_str = "hello";
+  let my_string = String::from(my_str);
+  ```
+
+
 
 
 
