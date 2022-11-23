@@ -56,6 +56,12 @@ fn main() {
     //Commenting out the `vec.push(elem)` line fails with `consider giving `vec` an explicit type, where the type for type parameter `T` is specified`
 
     println!("{:?}", vec);
+
+    type Name = String;
+
+    let x: Name = "Gill".to_string();
+
+    println!("My name is {}", x)
 }
 
 // Create an `enum` to classify a web event. Note how both

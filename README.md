@@ -421,5 +421,19 @@ fn main() {
   }
   ```
 
+#### 4.3. Aliasing
+
+- The `type` statement can be used to give a new name to an existing type. Types must have UpperCamelCase names, or the
+  compiler will raise a warning. The exception to this rule are the primitive types such as usize, f32
+
+  ```rust
+  type Name = String;
+  
+  let x: Name = "Gill".to_string();
+  ```
+- It is to be noted, however, that an alias is not a new type entirely. In other words, because Rust is strongly typed,
+  you’d expect a comparison between two different types to fail
+
+
 
 
