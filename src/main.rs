@@ -61,7 +61,22 @@ fn main() {
 
     let x: Name = "Gill".to_string();
 
-    println!("My name is {}", x)
+    println!("My name is {}", x);
+
+    //From and Into
+    #[derive(Debug)]
+    struct Number {
+        value: i32,
+    }
+
+    impl From<i32> for Number {
+        fn from(item: i32) -> Self {
+            Number { value: item }
+        }
+    }
+
+    let num = Number::from(-3);
+    println!("My number is {:?}", num);
 }
 
 // Create an `enum` to classify a web event. Note how both
