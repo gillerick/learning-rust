@@ -1,5 +1,4 @@
 use crate::linked_list::List::{Cons, Nil};
-use crate::List::*;
 
 enum List {
     // Cons: Tuple struct that wraps an element and a pointer to the next node
